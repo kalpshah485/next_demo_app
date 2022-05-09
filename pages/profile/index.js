@@ -16,10 +16,8 @@ function Profile() {
     });
     const json = await res.json();
     if (json.success) {
-      console.log(true)
       setData(json.data)
     } else {
-      console.log(false)
       localStorage.removeItem('user');
       router.replace('/login');
     }

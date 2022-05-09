@@ -3,9 +3,14 @@ import { useEffect, useState } from "react";
 
 const withAuth = Component => {
   const Auth = (props) => {
+    const apicall = true;
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const router = useRouter();
     useEffect(() => {
+      if (apicall) {
+        apicall = false;
+        return;
+      }
       (async () => {
         if (localStorage.getItem('user')) {
           const res = await fetch('/api/auth', {
