@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import WithAuth from "../../components/WithAuth";
 
 function Profile() {
@@ -33,12 +34,11 @@ function Profile() {
     });
     const json = await res.json();
     if (json.success) {
-      console.log(true)
       localStorage.removeItem('user');
-      alert("Logged out from All devices Successfully");
+      toast.success("Logged out from All devices Successfully");
       router.push('/');
     } else {
-      console.log(false);
+      toast.error("Logout Failed.");
     }
   }
   useEffect(() => {

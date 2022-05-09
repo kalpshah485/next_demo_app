@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import withoutAuth from "../../components/WithoutAuth";
 
 export default withoutAuth(function Signup() {
@@ -7,17 +8,25 @@ export default withoutAuth(function Signup() {
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formState)
-    });
-    const data = await res.json();
-    if (res.status === 201 && data) {
-      router.push('/login');
-      alert('Signup successful');
+    try {
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formState)
+      });
+      const data = await res.json();
+      if (res.status === 201 && data.success) {
+        toast.success('Signup Successful.');
+        router.push('/login');
+      } else if (res.status === 409 && !data.success) {
+        toast.error(data.error);
+      } else {
+        toast.error("Signup Failed due to server error.");
+      }
+    } catch (err) {
+      console.log(err.message);
     }
   }
   return (

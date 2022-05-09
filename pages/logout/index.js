@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 export default function Logout() {
   let apicall = true;
@@ -21,14 +22,16 @@ export default function Logout() {
         const data = await res.json();
         if (data.success) {
           localStorage.removeItem('user');
-          router.push('/')
+          toast.success('Logout Successful.');
+          router.push('/');
         } else {
-          router.push('/')
+          toast.error('Logout Error');
+          router.push('/');
         }
       })()
     } else {
-      alert("token is null");
-      router.push('/')
+      toast.error('Token is not available.');
+      router.push('/');
     }
   }, [])
 

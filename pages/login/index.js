@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react'
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import withoutAuth from '../../components/WithoutAuth';
 
 export default withoutAuth(function Login() {
@@ -17,15 +18,17 @@ export default withoutAuth(function Login() {
     const data = await res.json();
     if (res.status === 200 && data.success) {
       localStorage.setItem('user', data.token);
-      alert('Login successful');
+      toast.success("Login Successful.");
       router.push('/');
+    } else {
+      toast.error("Wrong Email or Password.");
     }
   }
   return (
     <>
       <h1>Login Page</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter Your Email" value={formState.email ? formState.email : ''} onChange={(e) => setFormState({ ...formState, email: e.target.value })} /><br />
+        <input type="email" placeholder="Enter Your Email" value={formState.email ? formState.email : ''} onChange={(e) => setFormState({ ...formState, email: e.target.value })} /><br />
         <input type="password" placeholder="Enter Your Password" value={formState.password ? formState.password : ''} onChange={(e) => setFormState({ ...formState, password: e.target.value })} /><br />
         <input type="submit" />
       </form>
