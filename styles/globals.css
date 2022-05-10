@@ -2,6 +2,72 @@ a {
   text-decoration: none;
   color: white;
 }
+
 .carousel-link :hover {
   color: white;
 }
+
+.inputWithButton {
+  margin: 5px;
+  height: 40px;
+  width: 255px;
+  display: flex;
+  border: 1px solid grey;
+}
+
+.inputWithoutButton {
+  margin: 5px;
+  height: 40px;
+  width: 255px;
+  display: flex;
+  border: 1px solid grey;
+}
+
+.inputWithoutButton input {
+  /* flex: 9; */
+  border: none;
+  outline: none;
+  /* background-color:red; */
+}
+
+.inputWithButton input {
+  /* flex: 9; */
+  width: 90%;
+  border: none;
+  outline: none;
+  /* background-color:red; */
+}
+
+.inputWithButton button {
+  border: 1px solid grey;
+  width: 10%;
+  height: 30px;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+  outline: none;
+  width: 50px;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav li {
+  margin-right: 5px;
+}
+/* .inputWithButton input {
+  width: 248px;
+  height: 24px;
+  padding-right: 60px;
+}
+
+.inputWithButton button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+} */

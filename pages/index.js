@@ -15,57 +15,48 @@ export default function Home() {
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <div className="navbar-brand text-light">
             <Link href="/">Next Demo</Link>
           </div>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarCollapse">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <div className="nav-link active">
-                  <Link href="/">Home</Link>
-                </div>
-              </li>
-              {
-                login ?
-                  <>
-                    <li className="nav-item active">
-                      <div className="nav-link active">
-                        <Link href="/profile">Profile</Link>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="nav-link">
-                        <Link href="/logout">Logout</Link>
-                      </div>
-                    </li>
-                  </>
-                  :
-                  <>
-                    <li className="nav-item">
-                      <div className="nav-link">
-                        <Link href="/signup">Signup</Link>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="nav-link">
-                        <Link href="/login">Login</Link>
-                      </div>
-                    </li>
-                  </>
-              }
-            </ul>
-            <form className="form-inline d-flex mt-2 mt-md-0">
-              <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
-            </form>
-          </div>
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <div className="nav-link active">
+                <Link href="/">Home</Link>
+              </div>
+            </li>
+            {
+              login ?
+                <>
+                  <li className="nav-item active">
+                    <div className="nav-link active">
+                      <Link href="/profile">Profile</Link>
+                    </div>
+                  </li>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link href="/logout">Logout</Link>
+                    </div>
+                  </li>
+                </>
+                :
+                <>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link href="/signup">Signup</Link>
+                    </div>
+                  </li>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link href="/login">Login</Link>
+                    </div>
+                  </li>
+                </>
+            }
+          </ul>
         </nav>
       </header>
-      <main className="mt-5" role="main">
+      <main className="mt-auto" role="main">
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <ol className="carousel-indicators">
             <li data-bs-target="#myCarousel" data-bs-slide-to="0" className="active"></li>
@@ -142,7 +133,7 @@ export default function Home() {
               <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div className="col-md-5">
-              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="500" width="500" />
+              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="300" width="300" layout="fixed" />
             </div>
           </div>
 
@@ -154,7 +145,7 @@ export default function Home() {
               <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div className="col-md-5 order-md-1">
-              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="500" width="500" />
+              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="300" width="300" layout="fixed" />
             </div>
           </div>
 
@@ -165,10 +156,9 @@ export default function Home() {
               <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div className="col-md-5">
-              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="500" width="500" />
+              <Image className="featurette-image img-fluid mx-auto" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" height="300" width="300" layout='fixed' />
             </div>
           </div>
-          <hr className="featurette-divider" />
         </div>
       </main>
     </>

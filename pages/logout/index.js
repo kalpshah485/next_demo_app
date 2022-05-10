@@ -23,15 +23,15 @@ export default function Logout() {
         if (data.success) {
           localStorage.removeItem('user');
           toast.success('Logout Successful.');
-          router.push('/');
+          router.replace('/');
         } else {
           toast.error('Logout Error');
-          router.push('/');
+          router.replace('/');
         }
       })()
     } else {
       toast.error('Token is not available.');
-      router.push('/');
+      router.replace('/');
     }
   }, [])
 

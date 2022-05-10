@@ -5,6 +5,7 @@ import withoutAuth from '../../components/WithoutAuth';
 
 export default withoutAuth(function Login() {
   const [formState, setFormState] = useState({});
+  const [showPass, setShowPass] = useState(false);
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,11 +27,16 @@ export default withoutAuth(function Login() {
   }
   return (
     <>
-      <h1>Login Page</h1>
+      <h1 className="margin-5">Login Page</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input type="email" placeholder="Enter Your Email" value={formState.email ? formState.email : ''} onChange={(e) => setFormState({ ...formState, email: e.target.value })} /><br />
-        <input type="password" placeholder="Enter Your Password" value={formState.password ? formState.password : ''} onChange={(e) => setFormState({ ...formState, password: e.target.value })} /><br />
-        <input type="submit" />
+        <div className="inputWithButton">
+          <input type="email" placeholder="Enter Your Email" value={formState.email ? formState.email : ''} onChange={(e) => setFormState({ ...formState, email: e.target.value })} /><br />
+        </div>
+        <div className="inputWithButton">
+          <input type={showPass ? "text" : "password"} placeholder="Enter Your Password" value={formState.password ? formState.password : ''} onChange={(e) => setFormState({ ...formState, password: e.target.value })} />
+          <button type="button" onClick={() => setShowPass(!showPass)}>{showPass ? "hide" : "show"}</button>
+        </div>
+        <input className="margin-5" type="submit" />
       </form>
     </>
   );

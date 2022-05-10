@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const withAuth = Component => {
   const Auth = (props) => {
@@ -24,6 +25,7 @@ const withAuth = Component => {
             setIsLoggedIn(true);
           } else {
             localStorage.removeItem('user');
+            toast.error("Invalid Token");
             router.replace('/login');
           }
         } else {
