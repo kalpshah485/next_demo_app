@@ -9,7 +9,7 @@ const auth = (handler) => {
     const bearerToken = bearerHeader.split(' ')[1];
     try {
       if (bearerToken && bearerToken !== "null") {
-        const verifyToken = jwt.verify(bearerToken, "KALPKALPKALPKALPKALPKALPKALPKALP");
+        const verifyToken = jwt.verify(bearerToken, process.env.TOKEN_SECRET);
         const user = await User.findOne({ _id: verifyToken._id, "tokens.token": bearerToken });
         if (!user) {
           throw new Error('User not Found');

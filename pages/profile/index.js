@@ -44,6 +44,7 @@ function Profile() {
   }
   useEffect(() => {
     if (apicall) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       apicall = false;
       return;
     }
